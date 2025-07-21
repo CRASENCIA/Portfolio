@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crasencia's Portfolio Book</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      overflow: hidden;
+      height: 100vh;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .book {
+      position: relative;
+      width: 90vw;
+      max-width: 1000px;
+      aspect-ratio: 3 / 2;
+      margin: 5vh auto;
+      perspective: 2000px;
+      border: 8px solid #FFD700;
+      border-radius: 12px;
+      box-shadow: 0 0 60px rgba(255, 215, 0, 0.2);
+      padding: 8px;
+      background: linear-gradient(to right, #1a1a1a 49.5%, #FFD700 49.5%, #1a1a1a 50.5%);
+      transform-style: preserve-3d;
+    }
+
+    .page {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 2px solid #FFD700;
+      border-radius: 8px;
+      box-shadow: inset 0 0 5px #FFD70044;
+      transition: transform 1s ease;
+      transform-origin: left center;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      background: #111;
+      color: white;
+      overflow-y: auto;
+    }
+
+    .flipped {
+      transform: rotateY(-180deg);
+    }
+
+    .cover-title {
+      color: #4169E1;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px #4169E1, 0 0 20px #4169E1;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .tap-note {
+      color: #888;
+      font-size: 0.8rem;
+      margin-top: 10px;
+    }
+
+    .carousel-container {
+      width: 100%;
+      display: flex;
+      overflow-x: scroll;
+      gap: 20px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .carousel-container iframe {
+      min-width: 800px;
+      height: 450px;
+      scroll-snap-align: start;
+      border-radius: 10px;
+      border: 2px solid #FFD70055;
+    }
+
+    h2 {
+      color: #FFD700;
+      margin-bottom: 0.5rem;
+    }
+
+    p, ul, li {
+      font-size: 1.1rem;
+      line-height: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    .social-buttons a {
+      display: inline-block;
+      margin: 5px;
+      padding: 10px 15px;
+      border-radius: 8px;
+      background: #FFD70033;
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .social-buttons a:hover {
+      background: #FFD700;
+      color: #000;
+    }
+
+    .centered {
+      align-items: center;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="book" id="book">
+    <!-- Page 1: Cover -->
+    <div class="page" id="page1" style="z-index: 10; background: url('https://github.com/CRASENCIA/portfolio-assets/blob/main/cover.jpeg.jpeg?raw=true') no-repeat center center / cover;">
+      <div class="cover-title">
+        Crasencia's Portfolio 💫
+        <div class="tap-note">(Double tap to flip ➡️ | Triple tap to go back ⬅️)</div>
+      </div>
+    </div>
+
+    <!-- Page 2: About Me -->
+    <div class="page" id="page2" style="z-index: 9; flex-direction: row; gap: 20px; align-items: center;">
+      <div style="width: 60%;">
+        Currently advancing my expertise as a UI/UX designer, I am committed to delivering thoughtful and impactful design solutions. I aim to bridge the gap between user expectations and functional design through rigorous research and iterative development.
+      </div>
+      <img src="https://github.com/CRASENCIA/About-page/blob/main/WhatsApp%20Image%202025-07-20%20at%202.00.44%20PM%20(1).jpeg?raw=true" alt="Crasencia" style="width: 35%; border-radius: 10px; box-shadow: 0 0 20px #FFD70088;">
+    </div>
+
+    <!-- Page 3 -->
+    <div class="page" id="page3" style="z-index: 8;">
+      <h2>📘 Education</h2>
+      <p>🎓 B.E-ECE – St. Josephs Institute of Technology – CGPA: 8.73<br>🏫 SSLC – 87%<br>📘 HSC – 89.6%</p>
+      <h2>🛠️ Skills</h2>
+      <p>🖌️ Figma, Canva, Adobe Photoshop, Illustrator, Blender<br>💻 React, HTML, CSS, Java<br>🧠 Critical Thinking, Problem Solving</p>
+    </div>
+
+    <!-- Page 4 -->
+    <div class="page" id="page4" style="z-index: 7;">
+      <h2>💼 Experience</h2>
+      <p>UI/UX Designer – Kopeat Exports (05/2022 - 10/2022) Dindigul,India
+ <br>Designed daily visuals for six months, boosting post reach by 40%, and strengthening brand presence across platforms
+ </p>
+      <h2>🎓 Internships</h2><br>Elevated Custom Satisfaction through effective problem resolution using skilled and amiable service  
+
+
+      <p>Next24tech, Graxi Designs, Aptitude Guru Hemachandar</p>
+      <h2>🚀 Projects</h2>
+      <p>Self-Care App - SELF-CARE APP
+ Self-Care App, 04/2025, Present, A smart self-care app that personalizes daily routines based on your unique body, lifestyle, and
+ goals, from wellness reminders to tailored tips; it's self-love scheduled perfectly.<br>
+ Prosthetic Arm - Prosthetic Arm, 03/2024, Present, 1 designed a myoelectric prosthetic arm capable of detecting muscle signals, providing enhanced
+ mobility and functionality for amputees.</p>
+    </div>
+
+    <!-- Page 5 -->
+    <div class="page" id="page5" style="z-index: 6;">
+      <h2>📜 Certifications</h2>
+      <ul>
+        <li>🎯 UX – Coursera, Great Learning</li>
+        <li>🧠 Java, HTML – Spoken Tutorial</li>
+        <li>🎨 Graphic Design – NPTEL</li>
+        <li>🖌️ Illustrator – Infosys</li>
+      </ul>
+      <h2>🌍 Languages</h2>
+      <p>🗣️ Tamil, 💬 English, 📗 Hindi, 🇯🇵 Japanese</p>
+    </div>
+
+    <!-- Page 6 -->
+    <div class="page" id="page6" style="z-index: 5;">
+      <h2>🎨 Figma Projects</h2>
+      <div class="carousel-container">
+        <iframe src="https://embed.figma.com/design/EGkDGOR4IWsQmuR8OieOU6/Behance?node-id=0-1&embed-host=share" allowfullscreen></iframe>
+        <iframe src="https://embed.figma.com/design/EGkDGOR4IWsQmuR8OieOU6/Behance?node-id=58-5&embed-host=share" allowfullscreen></iframe>
+        <iframe src="https://embed.figma.com/design/EGkDGOR4IWsQmuR8OieOU6/Behance?node-id=76-23&embed-host=share" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Page 7 (Updated with Inserted Code) -->
+    <div class="page" id="page7" style="z-index: 4;">
+      <h2>⚛️ React Projects</h2>
+      <ul>
+        <li><a href="https://crasencia.github.io/snake-game/" target="_blank">🐍 Snake Catching Balls Game – Play Now</a></li>
+        <li><a href="https://github.com/CRASENCIA/Snake-Catching-Balls-Game" target="_blank">📂 GitHub Repo</a></li>
+        <li><a href="https://crasencia.github.io/rock-paper-scissors/" target="_blank">✊ Rock Paper Scissors – Play Now</a></li>
+        <li><a href="https://github.com/CRASENCIA/Rock-Paper-Scissors" target="_blank">📂 GitHub Repo</a></li>
+      </ul>
+    </div>
+
+    <!-- Page 8 -->
+    <div class="page centered" id="page8" style="z-index: 3;">
+      <h2>💌 Contact & Social Links</h2>
+      <img src="https://github.com/CRASENCIA/Contact/blob/main/WhatsApp%20Image%202025-07-20%20at%202.00.45%20PM%20(1).jpeg?raw=true" style="width: 200px; border-radius: 10px;">
+      <p>Email: marycrasencia@gmail.com<br>📞 WhatsApp: 8610525411</p>
+      <p>🏠 Address: 27, ST.Xavier Street, Nagal Nagar, Dindigul.</p>
+      <div class="social-buttons">
+        <a href="https://www.linkedin.com/in/crasencia-mary-094310258/" target="_blank">LinkedIn</a>
+        <a href="https://www.instagram.com/crasencia_antonydass" target="_blank">Instagram</a>
+        <a href="https://github.com/CRASENCIA" target="_blank">GitHub</a>
+        <a href="https://www.behance.net/crasenciamary" target="_blank">Behance</a>
+        <a href="https://drive.google.com/file/d/10a-gLghMmrwvNO9eX7TuZPQUziTYmYkW/view?usp=drive_link" target="_blank">Resume</a>
+      </div>
+    </div>
+
+    <!-- Page 9 -->
+    <div class="page centered" id="page9" style="z-index: 2;">
+      <h2>🌟 Thank You! 🌟</h2>
+      <p>Thanks for flipping through my journey! Hope you enjoyed this magical portfolio book. ✨</p>
+      <p>With Love,<br><strong>Crasencia Mary 💖</strong></p>
+    </div>
+  </div>
+
+  <script>
+    const totalPages = 9;
+    let currentPage = 0;
+    let tapCount = 0;
+    let tapTimer;
+    const pages = [];
+
+    for (let i = 1; i <= totalPages; i++) {
+      const page = document.getElementById(`page${i}`);
+      pages.push(page);
+    }
+
+    document.body.addEventListener('click', handleTap);
+    document.body.addEventListener('touchend', handleTap);
+
+    function flipNext() {
+      if (currentPage < totalPages) {
+        pages[currentPage].classList.add("flipped");
+        currentPage++;
+      }
+    }
+
+    function flipBack() {
+      if (currentPage > 0) {
+        currentPage--;
+        pages[currentPage].classList.remove("flipped");
+      }
+    }
+
+    function handleTap() {
+      tapCount++;
+      clearTimeout(tapTimer);
+      tapTimer = setTimeout(() => {
+        if (tapCount === 2) {
+          flipNext();
+        } else if (tapCount === 3) {
+          flipBack();
+        }
+        tapCount = 0;
+      }, 400);
+    }
+  </script>
+</body>
+</html>
